@@ -1,7 +1,7 @@
 // Cloudflare Workers static assets. No server code runs, so hosting is free.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "travis-woods-site",
+  "name": "travis-woods",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
