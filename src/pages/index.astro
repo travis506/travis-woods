@@ -3,62 +3,73 @@ import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import ClarityRings from '../components/ClarityRings.astro';
 import CallToAction from '../components/CallToAction.astro';
-import { site, person, results, process, advisory, speaking, travel } from '../data/site';
+import { site, person, results, process, advisory, speaking, problems, outcomes, services, whoFor } from '../data/site';
 import { photos } from '../data/photos';
 
 const title = site.title;
 const description = site.description;
+const currentBoards = advisory.filter((a) => a.current).map((a) => a.org.replace(/ \(.*\)$/, ''));
 ---
 <Base title={title} description={description} pageType="WebPage">
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="statement">I ran an MSP for 16 years. Now I help vendors earn the channel&rsquo;s trust.</p>
-        <p class="lead">Partner programs fail when MSPs don&rsquo;t understand the story or don&rsquo;t believe it. I build channel go-to-market from the partner&rsquo;s side of the table, because that&rsquo;s where I sat.</p>
+        <p class="kicker">For cybersecurity, AI, and IT vendors selling through MSPs</p>
+        <h1 class="statement">Get MSPs selling your product, not just signing up.</h1>
+        <p class="lead">You built a strong product. Now you need MSPs to package it, price it, and sell it with margin. I help vendors build the partner value story, onboarding, and co-sell motion that move partners from signed to selling, faster.</p>
         <div class="actions">
-          <a class="btn btn--primary" href={person.bookingUrl}>Book a consultation</a>
-          <a class="btn btn--ghost" href="/speaking/">Book a speaking engagement</a>
+          <a class="btn btn--primary" href={person.bookingUrl}>Book a channel strategy call</a>
+          <a class="btn btn--ghost" href="/services/">See how it works</a>
         </div>
       </div>
       <div class="hero-media">
         <Photo photo={photos.studio} loading="eager" sizes="(min-width: 880px) 45vw, 100vw" widths={[480, 720, 960, 1280]} aspect="4/5" />
-        <div class="lower-third">
-          <h1><span class="lt-name">Travis Woods</span><span class="lt-role">Channel strategist and former MSP owner</span></h1>
+        <div class="lower-third" aria-hidden="true">
+          <span class="lt-name">Travis Woods</span><span class="lt-role">Ran an MSP for 16 years. Now builds vendor channel programs.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section--tight section--white glance" aria-labelledby="glance-h">
-    <div class="wrap grid-2 grid-2--wide-left">
-      <div>
-        <h2 id="glance-h" class="h-sm">Who is Travis Woods?</h2>
-        <p>{person.definition}</p>
-      </div>
-      <dl class="facts">
-        <div><dt>Based in</dt><dd>{person.location}</dd></div>
-        <div><dt>Operator background</dt><dd>Founder and CEO, Fort Point IT, 2009 to 2025</dd></div>
-        <div><dt>Works with</dt><dd>Cybersecurity, AI, cyber insurance, and IT vendors selling through MSPs</dd></div>
-        <div><dt>Advisory boards</dt><dd>The Channel Company XChange, GTIA, HENNGE North America, Theo AI</dd></div>
-        <div><dt>Markets</dt><dd>North America and Latin America</dd></div>
-      </dl>
+  <section class="section section--white" aria-labelledby="problems-h">
+    <div class="wrap">
+      <h2 id="problems-h">Sound familiar?</h2>
+      <p class="lead">Strong products stall in the MSP channel for the same handful of reasons. None of them are about the technology.</p>
+      <ul class="problems">
+        {problems.map((p) => (
+          <li><h3>{p.title}</h3><p>{p.text}</p></li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <section class="section problem">
     <div class="wrap grid-2">
       <div>
-        <h2>Your partners can&rsquo;t sell a story they don&rsquo;t understand</h2>
-        <p class="lead">Plenty of strong technology companies struggle to explain how they help MSPs grow. When the value story isn&rsquo;t simple, partners hesitate, sellers drift out of alignment, and programs stall.</p>
-        <p>You can sign partners all day. If they aren&rsquo;t engaging, you aren&rsquo;t driving revenue. I&rsquo;ve watched this from inside an MSP: the vendors who won my business made it easy to package, price, and sell their product with margin. The ones who didn&rsquo;t sat unused in the portal.</p>
+        <h2>MSPs back the vendors who make them money</h2>
+        <p class="lead">An MSP puts its own client relationships behind every product it sells. It backs the vendors that are easy to explain, easy to package, and profitable to deliver. Everything else sits unused in the portal.</p>
+        <p>Fixing that is not about more tiers or a bigger partner portal. It is about seeing your program the way an MSP owner sees it, then rebuilding the story, the offer, and the motion around what makes them say yes.</p>
       </div>
       <Photo photo={photos.canalysPanel} showCaption sizes="(min-width: 880px) 50vw, 100vw" />
     </div>
   </section>
 
-  <section class="section section--white" aria-labelledby="process-h">
+  <section class="section section--white" aria-labelledby="outcomes-h">
+    <div class="wrap grid-2 grid-2--wide-left">
+      <div>
+        <h2 id="outcomes-h">What you walk away with</h2>
+        <ul class="outcomes">{outcomes.map((o) => <li>{o}</li>)}</ul>
+      </div>
+      <div class="who">
+        <h3>Built for</h3>
+        <ul>{whoFor.map((w) => <li>{w}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-h">
     <div class="wrap">
-      <h2 id="process-h">The Channel Clarity Process</h2>
+      <h2 id="process-h">How we get there: the Channel Clarity Process</h2>
       <p class="lead">Three steps, in order. Most programs skip straight to activation and wonder why it doesn&rsquo;t stick.</p>
       <div class="rings-wrap"><ClarityRings /></div>
       <ol class="steps">
@@ -71,67 +82,33 @@ const description = site.description;
           </li>
         ))}
       </ol>
-      <p><a href="/services/">See how the process turns into an engagement</a></p>
     </div>
   </section>
 
-  <section class="section results" aria-labelledby="results-h">
+  <section class="section section--white" aria-labelledby="ways-h">
+    <div class="wrap">
+      <h2 id="ways-h">Ways to work together</h2>
+      <dl class="offers">
+        {services.map((s) => (
+          <div><dt>{s.name}</dt><dd>{s.text}</dd></div>
+        ))}
+      </dl>
+      <p><a href="/services/">See what each engagement includes</a></p>
+    </div>
+  </section>
+
+  <section class="section results" aria-labelledby="why-h">
     <div class="wrap grid-2">
       <div>
-        <h2 id="results-h">Proof from the operator&rsquo;s seat</h2>
-        <p>Before advising vendors, I built the motions I now recommend, inside my own MSP and with my own vendor partners.</p>
+        <h2 id="why-h">Why it works: I&rsquo;ve sat in your partner&rsquo;s chair</h2>
+        <p>For 16 years I ran Fort Point IT, a managed IT and cybersecurity provider. I chose vendors, worked their MDF and onboarding, and decided which ones earned a place in my stack. The motions I build for vendors are the ones that won my business.</p>
         <ul class="figures">
           {results.map((r) => <li><strong>{r.figure}</strong> <span>{r.label}</span></li>)}
         </ul>
-        <p><a href="/about/">Read the full background</a></p>
+        <p class="creds">Advisory boards: {currentBoards.join(', ')}. Spoken at {speaking.stages.slice(0, 4).join(', ')}.</p>
+        <p><a href="/about/">More on my background</a></p>
       </div>
       <Photo photo={photos.keynoteNexgen} showCaption aspect="1/1" />
-    </div>
-  </section>
-
-  <section class="section section--white" aria-labelledby="speak-h">
-    <div class="wrap">
-      <div class="grid-2">
-        <div>
-          <h2 id="speak-h">On stage and in the room</h2>
-          <p class="lead">Keynotes, panels, and focus groups on channel strategy, MSP evolution, and cybersecurity go-to-market. Candid, practical, and grounded in what MSPs actually do.</p>
-          <p class="stages">Spoken at {speaking.stages.slice(0, -1).join(', ')}, and the {speaking.stages.at(-1)}.</p>
-          <div class="actions"><a class="btn btn--ghost" href="/speaking/">Speaking topics</a></div>
-        </div>
-        <div class="mosaic">
-          <Photo photo={photos.xchangeStage} sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} aspect="4/3" />
-          <Photo photo={photos.aiWorkshop} sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} aspect="4/3" />
-          <Photo photo={photos.managedServices} sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} aspect="4/3" />
-          <Photo photo={photos.xchangePanel} sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} aspect="4/3" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="boards-h">
-    <div class="wrap grid-2">
-      <Photo photo={photos.channelCoBoard} showCaption />
-      <div>
-        <h2 id="boards-h">Trusted by the people who shape the channel</h2>
-        <ul class="boards">
-          {advisory.map((a) => <li><strong>{a.org}</strong><span>{a.role}</span></li>)}
-        </ul>
-        <p><a href="/advisory-boards/">Advisory boards and memberships</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--white global" aria-labelledby="global-h">
-    <div class="wrap grid-2 grid-2--wide-left">
-      <div>
-        <h2 id="global-h">Connecting the channel, one country at a time</h2>
-        <p>A change of latitude sparks new ideas. I work with partners, distributors, and public sector leaders across North America and Latin America, including cybersecurity and Smart City projects in Colombia.</p>
-        <p class="travel-label">{travel.label}</p>
-        <ul class="travel">
-          {travel.stats.map((s) => <li><strong>{s.figure}</strong> <span>{s.label}</span></li>)}
-        </ul>
-      </div>
-      <Photo photo={photos.foroColombia} showCaption />
     </div>
   </section>
 
@@ -142,6 +119,7 @@ const description = site.description;
   .hero { background: var(--white); padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem); overflow: hidden; }
   .hero-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; align-items: center; }
   @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 4rem; } }
+  .kicker { font-family: var(--display); font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; margin: 0 0 1rem; }
   .statement {
     font-family: var(--display); font-size: var(--s5); font-weight: 800; line-height: 1.02;
     font-variation-settings: 'wdth' 76; color: var(--navy); letter-spacing: -0.015em;
@@ -152,28 +130,34 @@ const description = site.description;
   .hero-media :global(img) { filter: contrast(1.05); }
 
   /* The broadcast-style lower third */
-  .lower-third { position: absolute; left: -0.75rem; right: 12%; bottom: 1.75rem; animation: lt-in 700ms cubic-bezier(.2,.7,.2,1) 250ms both; }
-  .lower-third h1 { margin: 0; display: grid; }
+  .lower-third { position: absolute; left: -0.75rem; right: 12%; bottom: 1.75rem; display: grid; animation: lt-in 700ms cubic-bezier(.2,.7,.2,1) 250ms both; }
   .lt-name {
-    background: var(--navy); color: #fff; font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 800;
+    background: var(--navy); color: #fff; font-family: var(--display); font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 800;
     font-variation-settings: 'wdth' 82; padding: 0.55rem 1.1rem 0.5rem 1.4rem; border-left: 10px solid var(--red); line-height: 1.05;
   }
   .lt-role {
-    background: var(--white); color: var(--navy); font-size: clamp(0.9rem, 1.6vw, 1.05rem); font-weight: 600;
+    background: var(--white); color: var(--navy); font-family: var(--display); font-size: clamp(0.9rem, 1.6vw, 1.05rem); font-weight: 600;
     font-variation-settings: 'wdth' 95; padding: 0.45rem 1.1rem 0.45rem 1.4rem; border-left: 10px solid var(--teal); width: fit-content; max-width: 100%;
   }
   @keyframes lt-in { from { transform: translateX(-24px); opacity: 0; } to { transform: none; opacity: 1; } }
 
-  .h-sm { font-size: var(--s2); }
-  .glance p { font-size: var(--s1); line-height: 1.55; }
-  .facts { margin: 0; display: grid; gap: 0; border-top: 2px solid var(--navy); }
-  .facts div { padding: 0.7rem 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; }
-  .facts dt { font-family: var(--display); font-weight: 700; color: var(--navy); font-size: 0.95rem; }
-  .facts dd { margin: 0; }
-  @media (max-width: 520px) { .facts div { grid-template-columns: 1fr; gap: 0.1rem; } }
+  .problems { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 0 2.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .problems { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1040px) { .problems { grid-template-columns: repeat(3, 1fr); } }
+  .problems li { margin: 0; padding: 1.25rem 0 1rem; border-top: 4px solid var(--red); }
+  .problems h3 { font-size: var(--s1); margin-bottom: 0.35rem; }
+  .problems p { margin: 0; color: var(--muted); }
+
+  .outcomes { list-style: none; padding: 0; margin: 1.5rem 0 0; border-top: 2px solid var(--navy); }
+  .outcomes li { margin: 0; padding: 0.85rem 0 0.85rem 2rem; border-bottom: 1px solid var(--rule); position: relative; font-size: 1.08rem; }
+  .outcomes li::before { content: ''; position: absolute; left: 0.2rem; top: 1.15rem; width: 0.9rem; height: 0.45rem; border-left: 3px solid var(--teal); border-bottom: 3px solid var(--teal); transform: rotate(-45deg); }
+  .who { background: var(--mist); padding: 1.5rem 1.75rem; align-self: start; }
+  .who h3 { margin-top: 0; }
+  .who ul { padding-left: 1.1em; margin: 0; }
+  .who li { margin-bottom: 0.5rem; }
 
   .rings-wrap { margin: 2rem 0 2.5rem; }
-  .steps { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 1.5rem; grid-template-columns: 1fr; counter-reset: none; }
+  .steps { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
   @media (min-width: 880px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
   .step { border-top: 6px solid var(--c); padding-top: 1.25rem; margin: 0; }
   .step--navy { --c: var(--navy); } .step--red { --c: var(--red); } .step--teal { --c: var(--teal); }
@@ -182,20 +166,14 @@ const description = site.description;
   .step-sum { font-style: italic; color: var(--muted); }
   .step ul { padding-left: 1.1em; font-size: 0.98rem; }
 
+  .offers { margin: 2rem 0 1.5rem; display: grid; grid-template-columns: 1fr; gap: 0 3rem; }
+  @media (min-width: 760px) { .offers { grid-template-columns: 1fr 1fr; } }
+  .offers div { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .offers dt { font-family: var(--display); font-weight: 700; font-size: var(--s1); color: var(--navy); margin-bottom: 0.3rem; }
+  .offers dd { margin: 0; }
+
   .figures { list-style: none; padding: 0; margin: 1.5rem 0; }
   .figures li { display: grid; gap: 0.15rem; padding: 0.9rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
   .figures strong { font-family: var(--display); font-size: var(--s3); color: var(--red); font-variation-settings: 'wdth' 76; line-height: 1.05; }
-
-  .stages { font-family: var(--display); font-weight: 600; color: var(--navy); }
-  .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-
-  .boards { list-style: none; padding: 0; margin: 0 0 1.5rem; border-top: 2px solid var(--navy); }
-  .boards li { padding: 0.75rem 0; border-bottom: 1px solid var(--rule); display: grid; margin: 0; }
-  .boards strong { font-family: var(--display); color: var(--navy); }
-  .boards span { color: var(--muted); font-size: 0.95rem; }
-
-  .travel-label { font-family: var(--display); font-weight: 600; color: var(--teal); margin-top: 1.5rem; margin-bottom: 0.5rem; }
-  .travel { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
-  .travel strong { display: block; font-family: var(--display); font-size: var(--s3); color: var(--navy); font-variation-settings: 'wdth' 78; line-height: 1.1; }
-  .travel span { font-family: var(--display); color: var(--muted); font-size: 0.95rem; }
+  .creds { color: var(--muted); font-size: 0.98rem; }
 </style>

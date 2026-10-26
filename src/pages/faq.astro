@@ -4,8 +4,8 @@ import CallToAction from '../components/CallToAction.astro';
 import { faqs, executiveRoleFaq, site } from '../data/site';
 import { faqNode } from '../lib/schema';
 
-const title = 'Frequently Asked Questions About Travis Woods';
-const description = 'Who Travis Woods is, what he does, the Channel Clarity Process, the companies he works with, his advisory boards, speaking, and how to book him.';
+const title = 'MSP Channel Go-to-Market FAQ for Vendors | Travis Woods';
+const description = 'How vendors accelerate go-to-market in the MSP channel, why partner programs stall, what MSPs look for in a vendor, the Channel Clarity Process, and how to work with Travis Woods.';
 const list = site.openToExecutiveRoles ? [...faqs, executiveRoleFaq] : faqs;
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
@@ -13,7 +13,7 @@ const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
   <header class="page-head">
     <div class="wrap">
       <h1>Frequently asked questions</h1>
-      <p class="lead">Straight answers about Travis Woods, his background, and how he works with vendors and event organizers.</p>
+      <p class="lead">Straight answers for vendors building or fixing an MSP channel, and about how Travis Woods works.</p>
     </div>
   </header>
   <section class="section section--white">

@@ -1,6 +1,6 @@
 // /llms.txt: a plain-text map of the site for AI assistants (llmstxt.org format).
 import type { APIRoute } from 'astro';
-import { site, person, bio, nav } from '../data/site';
+import { site, person, bio, footerNav as nav } from '../data/site';
 
 export const GET: APIRoute = () => {
   const body = `# ${person.name}
@@ -13,7 +13,7 @@ Last updated: ${site.lastUpdated}
 
 ## Pages
 
-- [Home](${site.url}/): Overview, the Channel Clarity Process, results, speaking, advisory boards
+- [Home](${site.url}/): Why vendors stall in the MSP channel, what changes, the Channel Clarity Process, ways to work together, and proof
 ${nav.map((n) => `- [${n.label}](${site.url}${n.href})`).join('\n')}
 
 ## Full text

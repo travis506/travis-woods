@@ -8,13 +8,13 @@ import { photos } from '../data/photos';
 import { ids } from '../lib/schema';
 import { site } from '../data/site';
 
-const title = 'Channel Strategy and MSP Go-to-Market Services | Travis Woods';
-const description = 'Channel GTM strategy, partner program design, fractional channel leadership, and LATAM expansion for cybersecurity, AI, and IT vendors selling through MSPs. Built on the Channel Clarity Process.';
+const title = 'MSP Channel Go-to-Market Services for Vendors | Travis Woods';
+const description = 'How Travis Woods helps cybersecurity, AI, and IT vendors get MSPs selling: MSP go-to-market strategy, partner program design, fractional channel leadership, and LATAM expansion, built on the Channel Clarity Process.';
 const howTo = {
   '@type': 'HowTo',
   '@id': `${site.url}/services/#process`,
   name: 'The Channel Clarity Process',
-  description: 'A three-step method for building partner programs MSPs trust and adopt.',
+  description: 'A three-step method for getting MSP partners to sell a vendor’s product.',
   author: { '@id': ids.person },
   step: process.map((p) => ({ '@type': 'HowToStep', position: p.step, name: p.name, text: `${p.summary} ${p.points.join('. ')}.` })),
 };
@@ -22,15 +22,15 @@ const howTo = {
 <Base title={title} description={description} crumbs={[{ name: 'Services', path: '/services/' }]} schema={[howTo]}>
   <header class="page-head">
     <div class="wrap">
-      <h1>Channel strategy services</h1>
-      <div class="answer"><p>Travis Woods helps cybersecurity, AI, and IT vendors build partner programs and MSP go-to-market strategies that partners adopt. Engagements follow the Channel Clarity Process: Insight, then Trust, then Activation.</p></div>
+      <h1>How I help vendors win in the MSP channel</h1>
+      <div class="answer"><p>You bring a product MSPs should be selling. I help you build the value story, program, and co-sell motion that get them selling it. Every engagement follows the Channel Clarity Process: Insight, then Trust, then Activation.</p></div>
     </div>
   </header>
 
   <section class="section section--white" aria-labelledby="who-h">
     <div class="wrap grid-2">
       <div>
-        <h2 id="who-h">Who this is for</h2>
+        <h2 id="who-h">Is this you?</h2>
         <ul class="who">{whoFor.map((w) => <li>{w}</li>)}</ul>
       </div>
       <Photo photo={photos.aiWorkshop} showCaption />

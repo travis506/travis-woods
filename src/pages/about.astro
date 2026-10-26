@@ -5,31 +5,25 @@ import CallToAction from '../components/CallToAction.astro';
 import { bio, experience, person, memberships } from '../data/site';
 import { photos } from '../data/photos';
 
-const title = 'About Travis Woods | Former MSP Owner Turned Channel Strategist';
-const description = 'Travis Woods founded and ran Fort Point IT, an MSP and managed cybersecurity practice, for 16 years. His background, career timeline, and why vendors trust his view of the channel.';
+const title = 'Why Vendors Work With Travis Woods | Former MSP Owner';
+const description = 'Why an advisor who ran an MSP for 16 years builds better vendor channel programs: MSP economics, how MSPs choose vendors, and where partner programs break. Plus Travis Woods’ background and career.';
 ---
 <Base title={title} description={description} pageType="ProfilePage" crumbs={[{ name: 'About', path: '/about/' }]}>
   <header class="page-head">
     <div class="wrap grid-2 grid-2--wide-left">
       <div>
-        <h1>About Travis Woods</h1>
+        <h1>Why vendors bring in Travis Woods</h1>
         <div class="answer"><p>{bio.short}</p></div>
       </div>
       <Photo photo={photos.armsCrossed} loading="eager" aspect="4/5" sizes="(min-width: 880px) 40vw, 100vw" widths={[480, 800, 1100]} />
     </div>
   </header>
 
-  <section class="section section--white">
-    <div class="wrap prose">
-      {bio.long.map((p) => <p>{p}</p>)}
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="why-h">
+  <section class="section section--white" aria-labelledby="why-h">
     <div class="wrap grid-2">
       <div>
-        <h2 id="why-h">Why operator experience matters to a vendor</h2>
-        <p>Most channel leaders come up through vendor sales or marketing. Travis came up running the business on the other side of the program. That changes what he notices.</p>
+        <h2 id="why-h">What an operator sees in your program</h2>
+        <p>Most channel leaders come up through vendor sales or marketing. Travis came up running the business on the other side of your program. That changes what he notices, and what he fixes.</p>
         <ul class="why">
           <li><strong>MSP economics.</strong> He knows how margin pressure, contract terms, and service delivery costs decide whether a product gets sold.</li>
           <li><strong>How MSPs choose vendors.</strong> He chose them. Trust, ease of packaging, and support after the deal outweigh tier points.</li>
@@ -38,6 +32,13 @@ const description = 'Travis Woods founded and ran Fort Point IT, an MSP and mana
         </ul>
       </div>
       <Photo photo={photos.securityStage} showCaption aspect="4/5" />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bg-h">
+    <div class="wrap prose">
+      <h2 id="bg-h">Background</h2>
+      {bio.long.map((p) => <p>{p}</p>)}
     </div>
   </section>
 
