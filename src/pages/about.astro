@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { bio, experience, person, memberships } from '../data/site';
+import { photos } from '../data/photos';
+
+const title = 'About Travis Woods | Former MSP Owner Turned Channel Strategist';
+const description = 'Travis Woods founded and ran Fort Point IT, an MSP and managed cybersecurity practice, for 16 years. His background, career timeline, and why vendors trust his view of the channel.';
+---
+<Base title={title} description={description} pageType="ProfilePage" crumbs={[{ name: 'About', path: '/about/' }]}>
+  <header class="page-head">
+    <div class="wrap grid-2 grid-2--wide-left">
+      <div>
+        <h1>About Travis Woods</h1>
+        <div class="answer"><p>{bio.short}</p></div>
+      </div>
+      <Photo photo={photos.armsCrossed} loading="eager" aspect="4/5" sizes="(min-width: 880px) 40vw, 100vw" widths={[480, 800, 1100]} />
+    </div>
+  </header>
+
+  <section class="section section--white">
+    <div class="wrap prose">
+      {bio.long.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-h">
+    <div class="wrap grid-2">
+      <div>
+        <h2 id="why-h">Why operator experience matters to a vendor</h2>
+        <p>Most channel leaders come up through vendor sales or marketing. Travis came up running the business on the other side of the program. That changes what he notices.</p>
+        <ul class="why">
+          <li><strong>MSP economics.</strong> He knows how margin pressure, contract terms, and service delivery costs decide whether a product gets sold.</li>
+          <li><strong>How MSPs choose vendors.</strong> He chose them. Trust, ease of packaging, and support after the deal outweigh tier points.</li>
+          <li><strong>Where programs break.</strong> Onboarding that never produces a first win, MDF that is too hard to claim, co-sell motions that exist only in a slide.</li>
+          <li><strong>The language.</strong> MSPs hear vendor speak instantly. Messaging written by someone who ran an MSP lands differently.</li>
+        </ul>
+      </div>
+      <Photo photo={photos.securityStage} showCaption aspect="4/5" />
+    </div>
+  </section>
+
+  <section class="section section--white" aria-labelledby="career-h">
+    <div class="wrap">
+      <h2 id="career-h">Career timeline</h2>
+      <ol class="timeline">
+        {experience.map((e) => (
+          <li>
+            <p class="when">{e.start} to {e.end}</p>
+            <div>
+              <h3>{e.role}</h3>
+              <p class="org">{e.org}</p>
+              <p>{e.summary}</p>
+              {e.points.length > 0 && <ul>{e.points.map((pt) => <li>{pt}</li>)}</ul>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="edu-h">
+    <div class="wrap grid-2">
+      <div>
+        <h2 id="edu-h">Education and memberships</h2>
+        <ul>
+          <li>{person.education.degree}, {person.education.school}</li>
+          {person.certifications.map((c) => <li>{c}</li>)}
+          {memberships.map((m) => <li>{m.org}</li>)}
+        </ul>
+      </div>
+      <div class="pair">
+        <Photo photo={photos.avianca} aspect="3/4" sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} />
+        <Photo photo={photos.coffee} aspect="3/4" sizes="(min-width: 880px) 25vw, 50vw" widths={[400, 800]} />
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Base>
+
+<style>
+  .prose p { font-size: 1.12rem; }
+  .why { list-style: none; padding: 0; }
+  .why li { padding: 0.8rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .why strong { font-family: var(--display); color: var(--navy); }
+  .timeline { list-style: none; padding: 0; margin: 2rem 0 0; border-left: 3px solid var(--navy); }
+  .timeline > li { display: grid; grid-template-columns: 1fr; gap: 0.25rem 2rem; padding: 0 0 2.5rem 1.75rem; position: relative; margin: 0; }
+  .timeline > li::before { content: ''; position: absolute; left: -9px; top: 0.35rem; width: 15px; height: 15px; background: var(--red); border: 3px solid var(--white); border-radius: 50%; }
+  @media (min-width: 760px) { .timeline > li { grid-template-columns: 9rem 1fr; } }
+  .when { font-family: var(--display); font-weight: 700; color: var(--teal); margin: 0.1rem 0 0; }
+  .timeline h3 { font-size: var(--s1); margin-bottom: 0.1rem; }
+  .org { font-family: var(--display); font-weight: 600; color: var(--muted); margin-bottom: 0.5rem; }
+  .timeline ul { font-size: 0.98rem; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+</style>

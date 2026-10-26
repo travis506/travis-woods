@@ -1,0 +1,19 @@
+---
+// The Channel Clarity Process mark, redrawn as accessible SVG.
+interface Props { size?: string }
+const { size = '100%' } = Astro.props;
+---
+<svg class="rings" viewBox="0 0 360 140" width={size} role="img" aria-labelledby="rings-title">
+  <title id="rings-title">The Channel Clarity Process: Insight, Trust, Activation</title>
+  <g fill="none" stroke-width="11">
+    <circle cx="70" cy="70" r="58" stroke="#14304f" />
+    <circle cx="180" cy="70" r="58" stroke="#c8323a" />
+    <circle cx="290" cy="70" r="58" stroke="#0f7f86" />
+  </g>
+  <g font-family="Archivo Variable, Arial, sans-serif" font-weight="800" font-size="17" text-anchor="middle">
+    <text x="70" y="76" fill="#14304f">INSIGHT</text>
+    <text x="180" y="76" fill="#c8323a">TRUST</text>
+    <text x="290" y="75" fill="#0f7f86" font-size="13.5" letter-spacing="-0.2">ACTIVATION</text>
+  </g>
+</svg>
+<style>.rings { display: block; max-width: 520px; height: auto; }</style>

@@ -1,0 +1,43 @@
+---
+import { nav, person, site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <p class="f-name">Travis Woods</p>
+      <p class="f-line">{person.shortRole}. Based in the {person.location}.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <ul>
+        <li><a href={person.bookingUrl}>Book a call</a></li>
+        <li><a href={person.linkedin} rel="me">LinkedIn</a></li>
+        <li><a href={`mailto:${person.email}`}>{person.email}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p>&copy; {year} Travis Woods. <a href="/llms.txt">llms.txt</a> <span aria-hidden="true">/</span> <a href="/sitemap-index.xml">Sitemap</a></p>
+    <p class="updated">Last updated <time datetime={site.lastUpdated}>{new Date(site.lastUpdated + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--navy-deep); color: #c4d2e0; padding: 3.5rem 0 1.5rem; font-family: var(--display); font-size: 0.95rem; }
+  .site-footer a { color: #fff; text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; color: #fff; }
+  .cols { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .cols { grid-template-columns: 1.4fr 1fr 1fr; } }
+  .f-name { font-weight: 800; font-size: 1.4rem; color: #fff; margin: 0 0 0.3rem; font-variation-settings: 'wdth' 80; }
+  .f-line { margin: 0; max-width: 32ch; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { margin-bottom: 0.45rem; }
+  .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; border-top: 1px solid rgba(255,255,255,0.12); margin-top: 2.5rem; padding-top: 1.25rem; font-size: 0.85rem; }
+  .legal p { margin: 0; }
+  .legal .updated { color: #9fb2c6; }
+</style>

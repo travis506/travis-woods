@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { faqs, executiveRoleFaq, site } from '../data/site';
+import { faqNode } from '../lib/schema';
+
+const title = 'Frequently Asked Questions About Travis Woods';
+const description = 'Who Travis Woods is, what he does, the Channel Clarity Process, the companies he works with, his advisory boards, speaking, and how to book him.';
+const list = site.openToExecutiveRoles ? [...faqs, executiveRoleFaq] : faqs;
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+---
+<Base title={title} description={description} pageType="WebPage" crumbs={[{ name: 'FAQ', path: '/faq/' }]} schema={[faqNode(site.openToExecutiveRoles)]}>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Frequently asked questions</h1>
+      <p class="lead">Straight answers about Travis Woods, his background, and how he works with vendors and event organizers.</p>
+    </div>
+  </header>
+  <section class="section section--white">
+    <div class="wrap">
+      <nav class="toc" aria-label="Questions">
+        <ul>{list.map((f) => <li><a href={`#${slug(f.q)}`}>{f.q}</a></li>)}</ul>
+      </nav>
+      {list.map((f) => (
+        <article class="qa" id={slug(f.q)}>
+          <h2>{f.q}</h2>
+          <p>{f.a}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CallToAction />
+</Base>
+
+<style>
+  .toc { margin-bottom: 3rem; }
+  .toc ul { columns: 2 22rem; column-gap: 3rem; padding-left: 1.1em; }
+  .toc li { break-inside: avoid; }
+  .qa { padding: 1.75rem 0; border-top: 1px solid var(--rule); max-width: 50rem; }
+  .qa h2 { font-size: var(--s2); }
+  .qa p { font-size: 1.1rem; }
+</style>

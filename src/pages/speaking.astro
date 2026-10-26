@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import { speaking, person, bio } from '../data/site';
+import { photos } from '../data/photos';
+
+const title = 'Speaker and Panel Moderator on MSP and Channel Strategy | Travis Woods';
+const description = 'Book Travis Woods, former MSP owner and channel strategist, for keynotes, panels, and focus groups on channel strategy, MSP evolution, AI, and cybersecurity go-to-market.';
+const gallery = [photos.keynoteNexgen, photos.canalysPanel, photos.keynoteGesture, photos.managedServices, photos.xchangePanel, photos.communitySelfie];
+---
+<Base title={title} description={description} crumbs={[{ name: 'Speaking', path: '/speaking/' }]}>
+  <header class="page-head">
+    <div class="wrap grid-2 grid-2--wide-left">
+      <div>
+        <h1>Speaking</h1>
+        <div class="answer"><p>Travis Woods is a channel industry speaker and panel moderator. He has spoken at {speaking.stages.slice(0, -1).join(', ')}, and the {speaking.stages.at(-1)}, bringing an MSP operator&rsquo;s view to channel strategy and cybersecurity go-to-market.</p></div>
+        <div class="actions"><a class="btn btn--primary" href={person.bookingUrl}>Book a speaking engagement</a></div>
+      </div>
+      <Photo photo={photos.xchangeStage} loading="eager" showCaption />
+    </div>
+  </header>
+
+  <section class="section section--white" aria-labelledby="topics-h">
+    <div class="wrap">
+      <h2 id="topics-h">Talk topics</h2>
+      <dl class="topics">
+        {speaking.topics.map((t) => <div><dt>{t.title}</dt><dd>{t.text}</dd></div>)}
+      </dl>
+      <p class="muted">Formats: {speaking.formats.join(', ').toLowerCase()}. Topics are tailored to your audience, whether MSPs, vendor channel teams, or distributors.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <h2 id="gallery-h">Recent stages</h2>
+      <div class="gallery">
+        {gallery.map((p) => <Photo photo={p} showCaption aspect="4/3" sizes="(min-width: 880px) 33vw, (min-width: 560px) 50vw, 100vw" widths={[400, 700, 1000]} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" aria-labelledby="bio-h">
+    <div class="wrap grid-2">
+      <div>
+        <h2 id="bio-h">Speaker bio</h2>
+        <p class="muted">For event programs and introductions. Use either version.</p>
+        <h3 class="h-small">Short</h3>
+        <p>{bio.short}</p>
+        <h3 class="h-small">Full</h3>
+        {bio.long.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="headshots">
+        <Photo photo={photos.studio} aspect="4/5" sizes="(min-width: 880px) 22vw, 50vw" widths={[400, 800, 1200]} />
+        <Photo photo={photos.glasses} aspect="4/5" sizes="(min-width: 880px) 22vw, 50vw" widths={[400, 800, 1200]} />
+        <p class="muted small">Need high-resolution headshots? <a href={`mailto:${person.email}?subject=Headshot%20request`}>Email Travis</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topics { margin: 1.5rem 0 1.5rem; display: grid; gap: 0 3rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .topics { grid-template-columns: 1fr 1fr; } }
+  .topics div { border-top: 1px solid var(--rule); padding: 1.1rem 0; }
+  .topics dt { font-family: var(--display); font-weight: 700; font-size: var(--s1); color: var(--navy); }
+  .topics dd { margin: 0.25rem 0 0; }
+  .gallery { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 560px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 880px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .h-small { font-size: var(--s1); margin-top: 1.5rem; }
+  .headshots { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; align-content: start; }
+  .headshots .small { grid-column: 1 / -1; font-size: 0.95rem; }
+</style>

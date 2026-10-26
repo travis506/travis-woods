@@ -1,0 +1,63 @@
+---
+import { nav, person } from '../data/site';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Travis Woods, home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Travis Woods</span>
+    </a>
+    <details class="menu">
+      <summary aria-label="Menu"><span class="burger" aria-hidden="true"></span><span class="menu-label">Menu</span></summary>
+      <nav aria-label="Main">
+        <ul>
+          {nav.map((n) => (
+            <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+          ))}
+        </ul>
+        <a class="btn btn--primary nav-cta" href={person.bookingUrl}>Book a call</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header { background: var(--white); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 20; }
+  .bar { display: flex; align-items: center; justify-content: space-between; min-height: 4.25rem; gap: 1rem; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--navy); }
+  .brand-name { font-family: var(--display); font-weight: 800; font-size: 1.2rem; font-variation-settings: 'wdth' 80; letter-spacing: 0; }
+  .brand-mark { width: 10px; height: 1.6rem; background: var(--red); box-shadow: 6px 0 0 var(--navy); margin-right: 6px; }
+
+  .menu summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: var(--display); font-weight: 600; padding: 0.5rem; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .burger, .burger::before, .burger::after { display: block; width: 20px; height: 2px; background: var(--navy); position: relative; }
+  .burger::before, .burger::after { content: ''; position: absolute; left: 0; }
+  .burger::before { top: -6px; } .burger::after { top: 6px; }
+  .menu nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--rule); padding: 0.5rem var(--gutter) 1.25rem; }
+  .menu ul { list-style: none; margin: 0; padding: 0; }
+  .menu li { margin: 0; }
+  .menu nav a:not(.btn) { display: block; padding: 0.7rem 0; font-family: var(--display); font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--mist); }
+  .menu nav a[aria-current='page'] { color: var(--red); }
+  .nav-cta { margin-top: 1rem; }
+
+  @media (min-width: 960px) {
+    .menu summary { display: none; }
+    .menu nav { position: static; display: flex; align-items: center; gap: 1.5rem; padding: 0; border: 0; background: none; }
+    .menu ul { display: flex; gap: 1.4rem; }
+    .menu nav a:not(.btn) { border: 0; padding: 0.25rem 0; font-size: 0.98rem; }
+    .menu nav a:not(.btn):hover { color: var(--red); }
+    .menu nav a[aria-current='page'] { box-shadow: 0 2px 0 var(--red); }
+    .nav-cta { margin: 0; padding: 0.6rem 1.1rem; }
+    /* Always open on desktop */
+    .menu:not([open]) > nav { display: flex; }
+  }
+</style>
+
+<script>
+  // Desktop: keep the disclosure open so the nav shows without JavaScript dependency on mobile.
+  const d = document.querySelector('.menu') as HTMLDetailsElement | null;
+  const mq = window.matchMedia('(min-width: 960px)');
+  const sync = () => { if (d) d.open = mq.matches; };
+  sync(); mq.addEventListener('change', sync);
+</script>

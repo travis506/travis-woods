@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import ClarityRings from '../components/ClarityRings.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { process, services, whoFor } from '../data/site';
+import { photos } from '../data/photos';
+import { ids } from '../lib/schema';
+import { site } from '../data/site';
+
+const title = 'Channel Strategy and MSP Go-to-Market Services | Travis Woods';
+const description = 'Channel GTM strategy, partner program design, fractional channel leadership, and LATAM expansion for cybersecurity, AI, and IT vendors selling through MSPs. Built on the Channel Clarity Process.';
+const howTo = {
+  '@type': 'HowTo',
+  '@id': `${site.url}/services/#process`,
+  name: 'The Channel Clarity Process',
+  description: 'A three-step method for building partner programs MSPs trust and adopt.',
+  author: { '@id': ids.person },
+  step: process.map((p) => ({ '@type': 'HowToStep', position: p.step, name: p.name, text: `${p.summary} ${p.points.join('. ')}.` })),
+};
+---
+<Base title={title} description={description} crumbs={[{ name: 'Services', path: '/services/' }]} schema={[howTo]}>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Channel strategy services</h1>
+      <div class="answer"><p>Travis Woods helps cybersecurity, AI, and IT vendors build partner programs and MSP go-to-market strategies that partners adopt. Engagements follow the Channel Clarity Process: Insight, then Trust, then Activation.</p></div>
+    </div>
+  </header>
+
+  <section class="section section--white" aria-labelledby="who-h">
+    <div class="wrap grid-2">
+      <div>
+        <h2 id="who-h">Who this is for</h2>
+        <ul class="who">{whoFor.map((w) => <li>{w}</li>)}</ul>
+      </div>
+      <Photo photo={photos.aiWorkshop} showCaption />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-h">
+    <div class="wrap">
+      <h2 id="process-h">The Channel Clarity Process</h2>
+      <p class="lead">Each step builds on the one before it. Skipping Insight is how programs end up rewarding partners for the wrong things.</p>
+      <div class="rings"><ClarityRings /></div>
+      {process.map((p) => (
+        <article class={`phase phase--${p.color}`} id={p.name.toLowerCase()}>
+          <div class="phase-head">
+            <span class="num" aria-hidden="true">{p.step}</span>
+            <div>
+              <h3>{p.name}</h3>
+              <p class="sum">{p.summary}</p>
+            </div>
+          </div>
+          <ul>{p.points.map((pt) => <li>{pt}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--white" aria-labelledby="ways-h">
+    <div class="wrap">
+      <h2 id="ways-h">Ways to work together</h2>
+      <dl class="offers">
+        {services.map((s) => (
+          <div><dt>{s.name}</dt><dd>{s.text}</dd></div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CallToAction heading="Not sure where your program is stalling?" text="That is exactly what the first conversation is for. Bring your partner numbers and your current pitch." />
+</Base>
+
+<style>
+  .who { list-style: none; padding: 0; border-top: 2px solid var(--navy); }
+  .who li { padding: 0.75rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .rings { margin: 1.5rem 0 2.5rem; }
+  .phase { display: grid; grid-template-columns: 1fr; gap: 1rem 3rem; padding: 2rem 0; border-top: 6px solid var(--c); }
+  @media (min-width: 880px) { .phase { grid-template-columns: 1fr 1.4fr; } }
+  .phase--navy { --c: var(--navy); } .phase--red { --c: var(--red); } .phase--teal { --c: var(--teal); }
+  .phase-head { display: flex; gap: 1rem; align-items: flex-start; }
+  .num { font-family: var(--display); font-weight: 800; font-size: 3.5rem; line-height: 0.9; color: var(--c); font-variation-settings: 'wdth' 75; }
+  .phase h3 { margin-bottom: 0.2rem; }
+  .sum { font-style: italic; color: var(--muted); }
+  .phase ul { margin: 0; }
+  .offers { margin: 2rem 0 0; display: grid; grid-template-columns: 1fr; gap: 0 3rem; }
+  @media (min-width: 760px) { .offers { grid-template-columns: 1fr 1fr; } }
+  .offers div { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .offers dt { font-family: var(--display); font-weight: 700; font-size: var(--s1); color: var(--navy); margin-bottom: 0.3rem; }
+  .offers dd { margin: 0; }
+</style>

@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { advisory, memberships } from '../data/site';
+import { photos } from '../data/photos';
+
+const title = 'Industry Advisory Boards and Leadership | Travis Woods';
+const description = 'Travis Woods serves on The Channel Company XChange Advisory Board, is a GTIA Member Champion, and advises HENNGE North America and Theo AI. Former Pax8 Partner Advisory Council member.';
+const current = advisory.filter((a) => a.current);
+const past = advisory.filter((a) => !a.current);
+---
+<Base title={title} description={description} crumbs={[{ name: 'Advisory boards', path: '/advisory-boards/' }]}>
+  <header class="page-head">
+    <div class="wrap">
+      <h1>Advisory boards and leadership</h1>
+      <div class="answer"><p>Travis Woods serves on The Channel Company XChange Advisory Board (formerly Vice Chair of the NexGen Advisory Board), is a GTIA Member Champion, and sits on advisory boards for HENNGE North America and Theo AI. He previously served on the Pax8 Partner Advisory Council.</p></div>
+    </div>
+  </header>
+
+  <section class="section section--white">
+    <div class="wrap grid-2 grid-2--wide-left">
+      <div>
+        <h2>Current roles</h2>
+        {current.map((a) => (
+          <article class="board">
+            <h3>{a.url ? <a href={a.url}>{a.org}</a> : a.org}</h3>
+            <p class="role">{a.role}</p>
+            <p>{a.detail}</p>
+          </article>
+        ))}
+        <h2 class="past-h">Past roles</h2>
+        {past.map((a) => (
+          <article class="board">
+            <h3>{a.org}</h3>
+            <p class="role">{a.role}</p>
+            <p>{a.detail}</p>
+          </article>
+        ))}
+        <h2 class="past-h">Memberships</h2>
+        <ul>{memberships.map((m) => <li>{m.url ? <a href={m.url}>{m.org}</a> : m.org}</li>)}</ul>
+      </div>
+      <div class="side">
+        <Photo photo={photos.xchangeGroup} showCaption />
+        <Photo photo={photos.antioquia} showCaption aspect="4/5" />
+      </div>
+    </div>
+  </section>
+
+  <CallToAction heading="Building a partner advisory council?" text="Travis has sat on councils for distributors, event organizers, and vendors, and has helped vendors recruit their own. Happy to compare notes." />
+</Base>
+
+<style>
+  .board { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .board h3 { font-size: var(--s1); margin-bottom: 0.15rem; }
+  .board h3 a { color: var(--navy); }
+  .role { font-family: var(--display); font-weight: 600; color: var(--teal); margin-bottom: 0.4rem; }
+  .past-h { font-size: var(--s3); margin-top: 2.5rem; }
+  .side { display: grid; gap: 1.5rem; }
+</style>

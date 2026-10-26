@@ -1,0 +1,8 @@
+# Old WordPress URLs
+/contact-me/ /contact/ 301
+/contact-me /contact/ 301
+/hello-world/ / 301
+/hello-world / 301
+/wp-admin/* / 301
+/wp-login.php / 301
+/feed/ / 301

@@ -1,0 +1,33 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  photo: { src: ImageMetadata; alt: string; caption?: string };
+  widths?: number[];
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  showCaption?: boolean;
+  class?: string;
+  aspect?: string; // e.g. '4/5' crops via object-fit
+}
+const { photo, widths = [480, 800, 1200, 1600], sizes = '(min-width: 880px) 50vw, 100vw', loading = 'lazy', showCaption = false, class: cls = '', aspect } = Astro.props;
+---
+<figure class={`photo ${cls}`} style={aspect ? `--aspect:${aspect}` : undefined}>
+  <Picture
+    src={photo.src}
+    alt={photo.alt}
+    widths={widths.filter((w) => w <= photo.src.width)}
+    sizes={sizes}
+    formats={['avif', 'webp']}
+    loading={loading}
+    fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+    quality={72}
+  />
+  {showCaption && photo.caption && <figcaption>{photo.caption}</figcaption>}
+</figure>
+
+<style>
+  .photo :global(img) { width: 100%; border-radius: 2px; }
+  .photo[style] :global(img) { aspect-ratio: var(--aspect); object-fit: cover; }
+</style>

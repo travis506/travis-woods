@@ -1,0 +1,77 @@
+---
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/source-serif-4/opsz.css';
+import '@fontsource-variable/source-serif-4/opsz-italic.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import { personNode, websiteNode, businessNode, webPage, breadcrumb } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  pageType?: string; // schema.org WebPage subtype
+  crumbs?: { name: string; path: string }[];
+  schema?: object[]; // extra page-level JSON-LD nodes
+  ogImage?: string;
+}
+const { title, description, pageType = 'WebPage', crumbs = [], schema = [], ogImage = '/og/travis-woods.jpg' } = Astro.props;
+const path = Astro.url.pathname;
+const canonical = new URL(path, site.url).href;
+const ogUrl = new URL(ogImage, site.url).href;
+const headshot = new URL('/images/travis-woods-headshot.jpg', site.url).href;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    websiteNode(),
+    personNode(headshot),
+    businessNode(headshot),
+    webPage(pageType, path, title, description),
+    ...(crumbs.length ? [breadcrumb(crumbs)] : []),
+    ...schema,
+  ],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="author" content="Travis Woods" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#14304f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" title="LLM summary" href="/llms.txt" />
+
+    <meta property="og:type" content={pageType === 'ProfilePage' ? 'profile' : 'website'} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Travis Woods, channel strategist and former MSP owner" />
+    <meta property="og:locale" content={site.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

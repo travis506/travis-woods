@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import { person, site } from '../data/site';
+import { photos } from '../data/photos';
+
+const title = 'Contact Travis Woods | Book a Consultation or Speaking Engagement';
+const description = 'Book a consultation or speaking engagement with Travis Woods, channel strategist and former MSP owner. Schedule directly, connect on LinkedIn, or email.';
+---
+<Base title={title} description={description} pageType="ContactPage" crumbs={[{ name: 'Contact', path: '/contact/' }]}>
+  <header class="page-head">
+    <div class="wrap grid-2 grid-2--wide-left">
+      <div>
+        <h1>Let&rsquo;s talk</h1>
+        <p class="lead">The fastest way to reach Travis is to book time directly. Tell him about your partner program, your event, or the problem you&rsquo;re trying to solve.</p>
+        <ul class="ways">
+          <li>
+            <h2>Book a call</h2>
+            <p>Consultations and speaking inquiries, scheduled on Travis&rsquo;s calendar.</p>
+            <a class="btn btn--primary" href={person.bookingUrl}>Open the calendar</a>
+          </li>
+          <li>
+            <h2>Connect on LinkedIn</h2>
+            <p><a href={person.linkedin} rel="me">linkedin.com/in/traviswoods</a></p>
+          </li>
+          <li>
+            <h2>Email</h2>
+            <p><a href={`mailto:${person.email}`}>{person.email}</a></p>
+          </li>
+        </ul>
+        {site.openToExecutiveRoles && (
+          <p class="roles">Recruiters and hiring leaders: Travis is open to conversations about vendor-side channel executive roles, such as VP of Channel, Head of MSP, or Chief MSP Officer.</p>
+        )}
+      </div>
+      <Photo photo={photos.glasses} loading="eager" aspect="4/5" sizes="(min-width: 880px) 40vw, 100vw" widths={[480, 800, 1100]} />
+    </div>
+  </header>
+</Base>
+
+<style>
+  .ways { list-style: none; padding: 0; margin: 2rem 0; border-top: 2px solid var(--navy); }
+  .ways li { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .ways h2 { font-size: var(--s1); margin-bottom: 0.25rem; }
+  .ways p { margin-bottom: 0.75rem; }
+  .roles { border-left: 4px solid var(--teal); padding-left: 1rem; color: var(--muted); }
+</style>
