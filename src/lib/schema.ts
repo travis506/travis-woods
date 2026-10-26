@@ -24,7 +24,7 @@ export function personNode(imageUrl: string) {
     alumniOf: { '@type': 'CollegeOrUniversity', name: person.education.school, url: person.education.schoolUrl },
     hasCredential: person.certifications.map((c) => ({ '@type': 'EducationalOccupationalCredential', name: c })),
     worksFor: experience
-      .filter((e) => e.end === 'Present' && !e.org.startsWith('Independent'))
+      .filter((e) => e.end === 'Present' && !('independent' in e))
       .map((e) => ({ '@type': 'Organization', name: e.org })),
     hasOccupation: [
       {
@@ -63,6 +63,7 @@ export function businessNode(imageUrl: string) {
     '@type': 'ProfessionalService',
     '@id': ids.business,
     name: 'Travis Woods, Channel Strategy and Advisory',
+    alternateName: 'Fort Point Advisory',
     url: `${site.url}/services/`,
     image: imageUrl,
     description: bio.short,

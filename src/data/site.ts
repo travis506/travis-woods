@@ -51,15 +51,17 @@ export const bio = {
     'Travis Woods ran an MSP for 16 years before he started advising vendors. Today he helps cybersecurity, AI, and IT companies build partner programs that MSPs trust, understand, and actually sell.',
   long: [
     'Travis Woods is a channel strategist and former MSP owner. He founded Fort Point IT in San Francisco in 2009 and ran it for 16 years as a profitable managed IT and cybersecurity practice. In that seat he lived every side of the vendor relationship: choosing security partners, working MDF and co-marketing programs, sitting through onboarding that worked and onboarding that did not, and deciding which vendors earned a place in his stack.',
-    'That operator experience is the foundation of his advisory work. Since 2025 he has advised AI, cybersecurity insurance, and IT security vendors on partner marketing, channel brand, onboarding, and go-to-market motions for the MSP and emerging channel ecosystem. He also serves as Vice President of Technology at DVBE Technology Colombia, a systems integrator delivering cybersecurity, infrastructure, and Smart City projects for government and enterprise clients.',
+    'That operator experience is the foundation of his advisory work. Since 2025 he has advised AI, cybersecurity insurance, and IT security vendors on partner marketing, channel brand, onboarding, and go-to-market motions for the MSP and emerging channel ecosystem. His independent practice operates informally as Fort Point Advisory. He also serves as Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator delivering cybersecurity, infrastructure, and Smart City projects for government and enterprise clients.',
     'Travis is an active voice in the channel. He serves on The Channel Company XChange Advisory Board (formerly Vice Chair of the NexGen Advisory Board), is a GTIA Member Champion, and has spoken at Canalys Forum, XChange Security, XChange NexGen, and GTIA ChannelCon. He is based in the San Francisco Bay Area and works with partners across North America and Latin America.',
   ],
 };
 
 export const experience = [
   {
-    org: 'Independent channel GTM advisor',
-    role: 'Channel strategy and partner marketing consultant',
+    // Informal trade name, not a registered company, so it is not listed as an employer in structured data.
+    org: 'Fort Point Advisory (independent practice)',
+    role: 'Independent channel GTM advisor',
+    independent: true,
     start: '2025',
     end: 'Present',
     summary:
@@ -72,7 +74,7 @@ export const experience = [
   },
   {
     org: 'DVBE Technology Colombia S.A.S.',
-    role: 'Vice President of Technology',
+    role: 'Vice President, Strategy and Channel Partnerships',
     start: '2023',
     end: 'Present',
     summary:
@@ -86,8 +88,8 @@ export const experience = [
   {
     org: 'Sprout Technology Group',
     role: 'Chief Information Officer',
-    start: '2021',
-    end: '2023',
+    start: '2023',
+    end: '2024',
     summary: 'Executive leader for technology strategy, partner-enabled go-to-market, and alliance-driven service innovation.',
     points: [
       'Designed and launched a partner-enabled cybersecurity service funded through the AWS Enterprise Discount Program, giving MSP and SI partners a security offer to package and deliver.',
@@ -322,7 +324,7 @@ export const faqs = [
   },
   {
     q: 'Does Travis Woods work in Latin America?',
-    a: 'Yes. He is Vice President of Technology at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors expand into LATAM through distributors and partners.',
+    a: 'Yes. He is Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors expand into LATAM through distributors and partners.',
   },
   {
     q: 'Which security vendors did Travis Woods partner with as an MSP?',
