@@ -5,9 +5,9 @@
 export const site = {
   url: 'https://travis-woods.com',
   name: 'Travis Woods',
-  title: 'Travis Woods | Channel Strategist and Former MSP Owner',
+  title: 'Accelerate Your MSP Channel Go-to-Market | Travis Woods',
   description:
-    'Travis Woods is a channel strategist who ran an MSP for 16 years. He helps cybersecurity, AI, and IT vendors build partner programs and MSP go-to-market strategies that partners actually adopt.',
+    'For cybersecurity, AI, and IT vendors who want MSPs selling, not just signing up. Travis Woods builds the partner value story, onboarding, and co-sell motion that move MSP partners from signed to selling.',
   lastUpdated: '2026-10-26',
   locale: 'en_US',
   // Set to false to hide the "open to executive roles" note on Contact and FAQ.
@@ -17,7 +17,7 @@ export const site = {
 export const person = {
   name: 'Travis Woods',
   jobTitle: 'Channel Strategist and Partner GTM Advisor',
-  shortRole: 'Channel strategist and former MSP owner',
+  shortRole: 'MSP channel go-to-market advisor for vendors, and a former MSP owner',
   location: 'San Francisco Bay Area, California',
   email: 'thattravis@icloud.com',
   bookingUrl: 'https://meetings-na2.hubspot.com/travis14',
@@ -26,7 +26,7 @@ export const person = {
   certifications: ['Salesforce Administrator (2009)'],
   // One paragraph AI engines can quote verbatim. Keep it factual.
   definition:
-    'Travis Woods is a channel strategist based in the San Francisco Bay Area who helps cybersecurity, AI, and IT vendors build partner programs and go-to-market strategies for managed service providers (MSPs) and IT service providers (ITSPs). He founded and ran Fort Point IT, a managed IT and cybersecurity provider, from 2009 to 2025, so he advises vendors from direct operator experience rather than from the outside.',
+    'Travis Woods helps cybersecurity, AI, and IT vendors accelerate go-to-market in the MSP channel. He builds the partner value story, program design, onboarding, enablement, and co-sell motions that move managed service providers (MSPs) and IT service providers (ITSPs) from signed partners to selling partners. He founded and ran Fort Point IT, a managed IT and cybersecurity provider, from 2009 to 2025, so he designs channel programs from the partner’s side of the table. He is based in the San Francisco Bay Area.',
   knowsAbout: [
     'Channel strategy',
     'Partner marketing',
@@ -48,7 +48,7 @@ export const person = {
 
 export const bio = {
   short:
-    'Travis Woods ran an MSP for 16 years before he started advising vendors. Today he helps cybersecurity, AI, and IT companies build partner programs that MSPs trust, understand, and actually sell.',
+    'Vendors bring in Travis Woods when MSPs sign up but don’t sell. He ran an MSP for 16 years, so he builds partner programs, messaging, and co-sell motions from the side of the table that decides what actually gets sold.',
   long: [
     'Travis Woods is a channel strategist and former MSP owner. He founded Fort Point IT in San Francisco in 2009 and ran it for 16 years as a profitable managed IT and cybersecurity practice. In that seat he lived every side of the vendor relationship: choosing security partners, working MDF and co-marketing programs, sitting through onboarding that worked and onboarding that did not, and deciding which vendors earned a place in his stack.',
     'That operator experience is the foundation of his advisory work. Since 2025 he has advised AI, cybersecurity insurance, and IT security vendors on partner marketing, channel brand, onboarding, and go-to-market motions for the MSP and emerging channel ecosystem. His independent practice operates informally as Fort Point Advisory. He also serves as Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator delivering cybersecurity, infrastructure, and Smart City projects for government and enterprise clients.',
@@ -198,33 +198,71 @@ export const speaking = {
   ],
 };
 
+// The problems vendors bring to the first conversation. Written in the vendor's voice.
+export const problems = [
+  {
+    title: 'Partners sign up, then go quiet',
+    text: 'Your partner count keeps growing. Deal registrations and revenue don’t. Signed partners are not selling partners.',
+  },
+  {
+    title: 'MSPs can’t repeat your value story',
+    text: 'If an MSP can’t explain in one sentence how you help them grow, they won’t put their client relationships on the line for you.',
+  },
+  {
+    title: 'Onboarding never gets to a first win',
+    text: 'Portal logins, generic training, and no early deal. Partners lose momentum before they ever close.',
+  },
+  {
+    title: 'Your offer doesn’t fit how MSPs make money',
+    text: 'Packaging, pricing, and terms that ignore MSP margin and service delivery costs keep you out of the stack.',
+  },
+  {
+    title: 'Incentives reward the wrong behavior',
+    text: 'MDF that is too hard to claim and tiers built on points instead of selling activity leave budget on the table.',
+  },
+  {
+    title: 'No one owns the channel yet',
+    text: 'You need senior channel leadership now, before you are ready to hire a full-time channel chief.',
+  },
+];
+
+// What a vendor walks away with.
+export const outcomes = [
+  'A partner value story MSPs understand, believe, and repeat to their clients',
+  'Packaging and pricing MSPs can sell with margin',
+  'Onboarding designed to get every new partner to a first win',
+  'Co-sell plays and talk tracks your team and your partners run the same way',
+  'Incentives and MDF that reward the selling behavior you want',
+  'A channel motion that scales into new markets, including Latin America',
+];
+
 // The Channel Clarity Process. A real sequence, so it is numbered.
 export const process = [
   {
     step: 1,
     name: 'Insight',
     color: 'navy',
-    summary: 'Find where partners lose trust or stall.',
+    summary: 'Find exactly where your partners lose trust or stall.',
     points: [
-      'Evaluate your partner value story',
-      'Assess messaging, onboarding, and enablement',
-      'Review partner incentives, co-sell assets, and deal registration flow',
-      'Identify where partners lose trust or stall in adoption',
-      'Align internal teams on one go-to-market narrative',
+      'Pressure-test your partner value story from the MSP side',
+      'Assess your messaging, onboarding, and enablement',
+      'Review incentives, co-sell assets, and deal registration flow',
+      'Pinpoint where partners stall between signing and selling',
+      'Align sales, marketing, and partner teams on one go-to-market narrative',
     ],
   },
   {
     step: 2,
     name: 'Trust',
     color: 'red',
-    summary: 'Build a story and a motion MSPs believe in.',
+    summary: 'Give MSPs a story and a motion they believe in.',
     points: [
-      'Develop a clear partner narrative: here is how we help you grow',
-      'Build trust-first messaging for MSPs and ITSPs',
-      'Design a simple, compelling go-to-market motion',
+      'Build a partner narrative that answers the MSP’s real question: how do you help me grow?',
+      'Write trust-first messaging for MSPs and ITSPs',
+      'Design a go-to-market motion simple enough to sell',
       'Document repeatable co-sell plays',
-      'Rework onboarding so partners get early wins',
-      'Define the KPIs that actually matter',
+      'Rework onboarding so partners get an early win',
+      'Define KPIs that track partner revenue, not just partner sign-ups',
     ],
   },
   {
@@ -233,50 +271,50 @@ export const process = [
     color: 'teal',
     summary: 'Turn signed partners into selling partners.',
     points: [
-      'Build co-selling and enablement frameworks',
-      'Create joint value creation plays',
+      'Build co-selling and enablement frameworks your partners actually use',
+      'Create joint value plays you and your MSPs run together',
       'Launch incentives that reinforce the behavior you want',
       'Simplify program tiers and partner journeys',
-      'Equip sellers with talk tracks that land with MSPs',
-      'Set up scaling mechanisms for new markets such as LATAM',
+      'Equip your sellers with talk tracks that land with MSPs',
+      'Set up the motion to scale into new markets such as LATAM',
     ],
   },
 ];
 
 export const services = [
   {
-    name: 'Channel GTM strategy and advisory',
-    text: 'Clarify your value to MSPs and design go-to-market plays that drive adoption, not just sign-ups.',
+    name: 'MSP go-to-market strategy',
+    text: 'Clarify your value to MSPs and design the go-to-market plays that drive adoption and revenue, not just sign-ups.',
   },
   {
-    name: 'Partner program architecture',
-    text: 'Incentives, onboarding, and enablement frameworks that scale and that partners can actually follow.',
+    name: 'Partner program design',
+    text: 'Incentives, onboarding, and enablement frameworks that scale, and that partners can actually follow.',
   },
   {
     name: 'Fractional channel leadership',
-    text: 'Senior channel leadership for emerging vendors that need a channel chief before they are ready to hire one full time.',
+    text: 'A senior channel leader working inside your team before you are ready to hire a full-time channel chief.',
   },
   {
-    name: 'Channel community development',
-    text: 'Partner advisory councils, community programs, and engagement that build long-term trust with new and existing partners.',
+    name: 'Partner advisory councils and community',
+    text: 'Advisory councils and community programs that put real MSP feedback into your roadmap and build long-term partner trust.',
   },
   {
-    name: 'LATAM expansion and global ecosystems',
-    text: 'Navigate markets, distributors, and partner go-to-market in Colombia and across Latin America.',
+    name: 'LATAM expansion',
+    text: 'Distributors, partners, and go-to-market for vendors entering Colombia and the rest of Latin America.',
   },
   {
-    name: 'Speaking and panel moderation',
-    text: 'Keynotes, panels, and focus groups on channel strategy, MSP evolution, and cybersecurity go-to-market.',
+    name: 'Partner events and speaking',
+    text: 'Keynotes, panels, and partner focus groups that bring an MSP operator’s view to your partner audience.',
   },
 ];
 
 export const whoFor = [
-  'Cybersecurity vendors building or fixing an MSP program',
+  'Cybersecurity vendors launching or fixing an MSP program',
   'AI companies bringing a product to MSPs and ITSPs for the first time',
-  'Cyber insurance providers working with MSPs as a channel',
+  'Cyber insurance providers using MSPs as a distribution channel',
   'Emerging vendors that need channel leadership before a full-time hire',
+  'Vendors whose partner count is growing faster than partner revenue',
   'Distributors and marketplaces designing vendor and partner programs',
-  'Event organizers looking for an MSP operator voice on stage',
 ];
 
 // Travel figures as shown on the previous site. Update the label and numbers together.
@@ -291,52 +329,56 @@ export const travel = {
 
 export const faqs = [
   {
-    q: 'Who is Travis Woods?',
-    a: 'Travis Woods is a channel strategist and former MSP owner based in the San Francisco Bay Area. He founded and ran Fort Point IT, a managed IT and cybersecurity provider, from 2009 to 2025, and now advises cybersecurity, AI, and IT vendors on partner programs and MSP go-to-market strategy.',
+    q: 'How can a vendor accelerate go-to-market in the MSP channel?',
+    a: 'Start with the partner value story, not the program tiers. MSPs adopt vendors they can explain, package, and sell with margin. Travis Woods helps vendors find where partners stall (Insight), build a value story and co-sell motion MSPs believe in (Trust), and then turn signed partners into selling partners with onboarding, enablement, and incentives (Activation).',
   },
   {
-    q: 'What does Travis Woods do?',
-    a: 'He helps technology vendors build channel programs that MSPs and IT service providers trust and adopt. His work covers channel go-to-market strategy, partner program design, onboarding and enablement, co-marketing, fractional channel leadership, LATAM expansion, and speaking at channel events.',
+    q: 'Why do MSP partner programs stall after partners sign up?',
+    a: 'Usually for one of a few reasons: MSPs can’t explain the vendor’s value to their clients, the product is hard to package and price with margin, onboarding never produces a first win, or incentives reward activity instead of selling. Travis Woods saw each of these from inside his own MSP before he started advising vendors.',
+  },
+  {
+    q: 'What do MSPs look for when choosing a new vendor?',
+    a: 'Trust, a product they can package and price profitably, support after the deal, and a vendor that understands how a managed services business runs. Tier points and logo placement matter far less than most vendors expect.',
+  },
+  {
+    q: 'What is the Channel Clarity Process?',
+    a: 'The Channel Clarity Process is Travis Woods’ three-step method for getting MSPs to sell a vendor’s product. Insight finds where partners lose trust or stall. Trust builds a partner narrative, messaging, and co-sell plays MSPs believe in. Activation turns signed partners into selling partners with enablement, incentives, and simpler partner journeys.',
+  },
+  {
+    q: 'Do we need a full-time channel chief before entering the MSP channel?',
+    a: 'Not necessarily. Travis Woods works as a fractional channel chief for emerging vendors that need senior channel leadership before they are ready to hire a full-time channel executive.',
+  },
+  {
+    q: 'What kinds of vendors does Travis Woods work with?',
+    a: 'Cybersecurity vendors, AI companies, cyber insurance providers, and IT security vendors selling through MSPs, MSSPs, systems integrators, and distributors. Most are emerging vendors entering the MSP channel, or established vendors whose partner programs are not producing engaged, selling partners.',
+  },
+  {
+    q: 'What happens on the first call?',
+    a: 'A 30-minute conversation about where your partners stall and what it would take to get them moving. Bring your partner numbers and your current pitch.',
+  },
+  {
+    q: 'Can Travis Woods help us expand into Latin America?',
+    a: 'Yes. He is Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors enter LATAM through distributors and partners.',
+  },
+  {
+    q: 'Who is Travis Woods?',
+    a: 'Travis Woods is an MSP channel go-to-market advisor based in the San Francisco Bay Area. He founded and ran Fort Point IT, a managed IT and cybersecurity provider, from 2009 to 2025, and now helps cybersecurity, AI, and IT vendors get MSPs selling their products.',
   },
   {
     q: 'How is Travis Woods different from other channel consultants?',
     a: 'He ran an MSP for 16 years. He has been the partner on the receiving end of vendor programs, MDF, onboarding, and co-sell motions, so he understands MSP economics, margin pressure, service delivery, and how MSPs actually decide which vendors to back. Vendors get that operator view built into their go-to-market.',
   },
   {
-    q: 'What is the Channel Clarity Process?',
-    a: 'The Channel Clarity Process is Travis Woods’ three-step method for fixing partner programs. Insight finds where partners lose trust or stall. Trust builds a partner narrative, messaging, and co-sell plays MSPs believe in. Activation turns signed partners into selling partners with enablement, incentives, and simpler partner journeys.',
-  },
-  {
-    q: 'What kinds of companies does Travis Woods work with?',
-    a: 'Cybersecurity vendors, AI companies, cyber insurance providers, and IT security vendors selling through MSPs, MSSPs, systems integrators, and distributors. Most are emerging vendors entering the MSP channel or established vendors whose partner programs are not producing engaged, selling partners.',
-  },
-  {
-    q: 'Does Travis Woods offer fractional channel leadership?',
-    a: 'Yes. He works as a fractional channel chief for emerging vendors that need senior channel leadership before they hire a full-time channel executive.',
-  },
-  {
     q: 'Which industry advisory boards does Travis Woods serve on?',
     a: 'He serves on The Channel Company XChange Advisory Board (formerly Vice Chair of the NexGen Advisory Board), is a GTIA Member Champion, and advises HENNGE North America and Theo AI. He is a former member of the Pax8 Partner Advisory Council and the GTIA Channel Development Advisory Council.',
   },
   {
-    q: 'Where has Travis Woods spoken?',
-    a: 'Canalys Forum, XChange Security, XChange NexGen, GTIA ChannelCon, and the Channel Insider Podcast. He gives keynotes, joins and moderates panels, and leads partner focus groups.',
+    q: 'Can Travis Woods speak to our partners or at our event?',
+    a: 'Yes. He has spoken at Canalys Forum, XChange Security, XChange NexGen, GTIA ChannelCon, and the Channel Insider Podcast, and he gives keynotes, moderates panels, and leads partner focus groups.',
   },
   {
-    q: 'Does Travis Woods work in Latin America?',
-    a: 'Yes. He is Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors expand into LATAM through distributors and partners.',
-  },
-  {
-    q: 'Which security vendors did Travis Woods partner with as an MSP?',
-    a: 'Among others, he was a WatchGuard partner and selected Malwarebytes (now ThreatDown) as a cybersecurity partner for Fort Point IT.',
-  },
-  {
-    q: 'How do I book Travis Woods for a consultation or speaking engagement?',
+    q: 'How do I get started?',
     a: 'Book time directly at meetings-na2.hubspot.com/travis14, connect on LinkedIn at linkedin.com/in/traviswoods, or email thattravis@icloud.com.',
-  },
-  {
-    q: 'Where is Travis Woods based?',
-    a: 'The San Francisco Bay Area. He travels often for conferences and client work across North America and Latin America.',
   },
 ];
 
@@ -346,10 +388,12 @@ export const executiveRoleFaq = {
 };
 
 export const nav = [
-  { href: '/about/', label: 'About' },
-  { href: '/services/', label: 'Services' },
+  { href: '/services/', label: 'How I help' },
+  { href: '/about/', label: 'Why Travis' },
   { href: '/speaking/', label: 'Speaking' },
-  { href: '/advisory-boards/', label: 'Advisory boards' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/contact/', label: 'Contact' },
 ];
+
+// Footer and llms.txt list every page, including ones kept out of the main menu.
+export const footerNav = [...nav, { href: '/advisory-boards/', label: 'Advisory boards' }];
