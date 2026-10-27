@@ -19,7 +19,7 @@ export const person = {
   jobTitle: 'Channel Strategist and Partner GTM Advisor',
   shortRole: 'MSP channel go-to-market advisor for vendors, and a former MSP owner',
   location: 'San Francisco Bay Area, California',
-  email: 'thattravis@icloud.com',
+  email: 'travis@travis-woods.com',
   bookingUrl: 'https://meetings-na2.hubspot.com/travis14',
   linkedin: 'https://www.linkedin.com/in/traviswoods/',
   education: { degree: 'B.A. in Psychology', school: 'San Francisco State University', schoolUrl: 'https://www.sfsu.edu/' },
@@ -378,7 +378,7 @@ export const faqs = [
   },
   {
     q: 'How do I get started?',
-    a: 'Book time directly at meetings-na2.hubspot.com/travis14, connect on LinkedIn at linkedin.com/in/traviswoods, or email thattravis@icloud.com.',
+    a: 'Book time directly at meetings-na2.hubspot.com/travis14, connect on LinkedIn at linkedin.com/in/traviswoods, or email travis@travis-woods.com.',
   },
 ];
 
