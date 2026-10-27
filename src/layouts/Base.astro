@@ -16,7 +16,7 @@ interface Props {
   schema?: object[]; // extra page-level JSON-LD nodes
   ogImage?: string;
 }
-const { title, description, pageType = 'WebPage', crumbs = [], schema = [], ogImage = '/og/travis-woods.jpg' } = Astro.props;
+const { title, description, pageType = 'WebPage', crumbs = [], schema = [], ogImage = '/og/travis-woods-stage.jpg' } = Astro.props;
 const path = Astro.url.pathname;
 const canonical = new URL(path, site.url).href;
 const ogUrl = new URL(ogImage, site.url).href;
@@ -57,7 +57,7 @@ const graph = {
     <meta property="og:image" content={ogUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Travis Woods, channel strategist and former MSP owner" />
+    <meta property="og:image:alt" content="Travis Woods speaking on stage at XChange, with the headline Build trust. Scale fast." />
     <meta property="og:locale" content={site.locale} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
