@@ -17,7 +17,6 @@ export function personNode(imageUrl: string) {
     image: imageUrl,
     jobTitle: person.jobTitle,
     description: person.definition,
-    email: `mailto:${person.email}`,
     address: { '@type': 'PostalAddress', addressRegion: 'CA', addressCountry: 'US', addressLocality: 'San Francisco Bay Area' },
     sameAs: [person.linkedin],
     knowsAbout: person.knowsAbout,
@@ -69,7 +68,6 @@ export function businessNode(imageUrl: string) {
     description: bio.short,
     founder: { '@id': ids.person },
     areaServed: ['United States', 'Canada', 'Latin America'],
-    email: person.email,
     knowsAbout: person.knowsAbout,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

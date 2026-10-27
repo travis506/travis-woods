@@ -74,7 +74,6 @@ ${faqList.map((f) => `### ${f.q}\n\n${f.a}`).join('\n\n')}
 
 - Book a call: ${person.bookingUrl}
 - LinkedIn: ${person.linkedin}
-- Email: ${person.email}
 `;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

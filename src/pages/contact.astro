@@ -5,7 +5,7 @@ import { person, site } from '../data/site';
 import { photos } from '../data/photos';
 
 const title = 'Book a Channel Strategy Call | Travis Woods';
-const description = 'Book a 30-minute channel strategy call with Travis Woods about where your MSP partners stall and how to get them selling. Schedule directly, connect on LinkedIn, or email.';
+const description = 'Book a 30-minute channel strategy call with Travis Woods about where your MSP partners stall and how to get them selling. Schedule directly or connect on LinkedIn.';
 ---
 <Base title={title} description={description} pageType="ContactPage" crumbs={[{ name: 'Contact', path: '/contact/' }]}>
   <header class="page-head">
@@ -22,10 +22,6 @@ const description = 'Book a 30-minute channel strategy call with Travis Woods ab
           <li>
             <h2>Connect on LinkedIn</h2>
             <p><a href={person.linkedin} rel="me">linkedin.com/in/traviswoods</a></p>
-          </li>
-          <li>
-            <h2>Email</h2>
-            <p><a href={`mailto:${person.email}`}>{person.email}</a></p>
           </li>
         </ul>
         {site.openToExecutiveRoles && (

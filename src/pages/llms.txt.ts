@@ -24,7 +24,6 @@ ${nav.map((n) => `- [${n.label}](${site.url}${n.href})`).join('\n')}
 
 - Book a call: ${person.bookingUrl}
 - LinkedIn: ${person.linkedin}
-- Email: ${person.email}
 `;
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };
