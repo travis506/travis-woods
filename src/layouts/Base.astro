@@ -16,7 +16,7 @@ interface Props {
   schema?: object[]; // extra page-level JSON-LD nodes
   ogImage?: string;
 }
-const { title, description, pageType = 'WebPage', crumbs = [], schema = [], ogImage = '/og/travis-woods-stage.jpg' } = Astro.props;
+const { title, description, pageType = 'WebPage', crumbs = [], schema = [], ogImage = '/og/travis-woods-trust.jpg' } = Astro.props;
 const path = Astro.url.pathname;
 const canonical = new URL(path, site.url).href;
 const ogUrl = new URL(ogImage, site.url).href;
