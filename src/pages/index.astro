@@ -12,22 +12,19 @@ const currentBoards = advisory.filter((a) => a.current).map((a) => a.org.replace
 ---
 <Base title={title} description={description} pageType="WebPage">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="kicker">For cybersecurity, AI, and IT vendors selling through MSPs</p>
-        <h1 class="statement">Get MSPs selling your product, not just signing up.</h1>
-        <p class="lead">You built a strong product. Now you need MSPs to package it, price it, and sell it with margin. I help vendors build the partner value story, onboarding, and co-sell motion that move partners from signed to selling, faster.</p>
-        <div class="actions">
-          <a class="btn btn--primary" href={person.bookingUrl}>Book a channel strategy call</a>
-          <a class="btn btn--ghost" href="/services/">See how it works</a>
-        </div>
+    <Photo photo={photos.keynoteGesture} loading="eager" class="hero-bg" sizes="(min-width: 761px) 70vw, 100vw" widths={[800, 1200, 1600, 2200]} />
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <p class="kicker">For cybersecurity, AI, and IT vendors selling through MSPs</p>
+      <h1 class="statement">Build trust. Scale fast.</h1>
+      <p class="sub">Get MSPs selling your product, not just signing up.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href={person.bookingUrl}>Book a channel strategy call</a>
+        <a class="btn btn--ghost btn--light" href="/services/">See how it works</a>
       </div>
-      <div class="hero-media">
-        <Photo photo={photos.studio} loading="eager" sizes="(min-width: 880px) 45vw, 100vw" widths={[480, 720, 960, 1280]} aspect="4/5" />
-        <div class="lower-third" aria-hidden="true">
-          <span class="lt-name">Travis Woods</span><span class="lt-role">Ran an MSP for 16 years. Now builds vendor channel programs.</span>
-        </div>
-      </div>
+    </div>
+    <div class="lower-third" aria-hidden="true">
+      <span class="lt-name">Travis Woods</span><span class="lt-role">Ran an MSP for 16 years. Now builds vendor channel programs.</span>
     </div>
   </section>
 
@@ -116,30 +113,43 @@ const currentBoards = advisory.filter((a) => a.current).map((a) => a.org.replace
 </Base>
 
 <style>
-  .hero { background: var(--white); padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem); overflow: hidden; }
-  .hero-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; align-items: center; }
-  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 4rem; } }
-  .kicker { font-family: var(--display); font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; margin: 0 0 1rem; }
+  /* Hero: full-bleed stage photo with the headline on a navy shade */
+  .hero { position: relative; min-height: clamp(560px, 82vh, 820px); display: flex; align-items: center; overflow: hidden; background: var(--navy-deep); }
+  .hero :global(.hero-bg) { position: absolute; top: 0; bottom: 0; right: 0; left: 30%; }
+  .hero :global(.hero-bg img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; border-radius: 0; }
+  .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy-deep) 0%, var(--navy-deep) 30%, rgba(13,33,57,.55) 42%, rgba(13,33,57,0) 56%); }
+  .hero-copy { position: relative; z-index: 1; width: 100%; padding-top: 3rem; padding-bottom: 7rem; }
+  .hero-copy > * { max-width: 560px; }
+  .kicker { font-family: var(--display); font-weight: 700; color: #7fd3d8; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; margin: 0 0 1rem; }
   .statement {
-    font-family: var(--display); font-size: var(--s5); font-weight: 800; line-height: 1.02;
-    font-variation-settings: 'wdth' 76; color: var(--navy); letter-spacing: -0.015em;
-    margin: 0 0 1.5rem; max-width: 15ch; text-wrap: balance;
+    font-family: var(--display); font-size: clamp(3rem, 8.5vw, 6.25rem); font-weight: 800; line-height: 0.98;
+    font-variation-settings: 'wdth' 74; color: #fff; letter-spacing: -0.02em; margin: 0 0 1rem; text-wrap: balance;
   }
-  .hero .lead { max-width: 46ch; }
-  .hero-media { position: relative; }
-  .hero-media :global(img) { filter: contrast(1.05); }
+  .sub { font-family: var(--display); font-size: clamp(1.25rem, 2.2vw, 1.6rem); font-weight: 650; color: #dfe8f1; line-height: 1.25; margin: 0 0 1.25rem; max-width: 30ch; font-variation-settings: 'wdth' 92; }
+  .btn--light { border-color: #fff; color: #fff; }
+  .btn--light:hover { background: #fff; color: var(--navy); }
 
   /* The broadcast-style lower third */
-  .lower-third { position: absolute; left: -0.75rem; right: 12%; bottom: 1.75rem; display: grid; animation: lt-in 700ms cubic-bezier(.2,.7,.2,1) 250ms both; }
+  .lower-third { position: absolute; right: clamp(16px, 4vw, 40px); bottom: 2rem; z-index: 1; display: grid; animation: lt-in 700ms cubic-bezier(.2,.7,.2,1) 250ms both; }
   .lt-name {
-    background: var(--navy); color: #fff; font-family: var(--display); font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 800;
+    background: var(--navy); color: #fff; font-family: var(--display); font-size: clamp(1.5rem, 3.2vw, 2.3rem); font-weight: 800;
     font-variation-settings: 'wdth' 82; padding: 0.55rem 1.1rem 0.5rem 1.4rem; border-left: 10px solid var(--red); line-height: 1.05;
   }
   .lt-role {
-    background: var(--white); color: var(--navy); font-family: var(--display); font-size: clamp(0.9rem, 1.6vw, 1.05rem); font-weight: 600;
+    background: var(--white); color: var(--navy); font-family: var(--display); font-size: clamp(0.85rem, 1.5vw, 1.02rem); font-weight: 600;
     font-variation-settings: 'wdth' 95; padding: 0.45rem 1.1rem 0.45rem 1.4rem; border-left: 10px solid var(--teal); width: fit-content; max-width: 100%;
   }
   @keyframes lt-in { from { transform: translateX(-24px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  /* Phones: photo on top, headline on navy below */
+  @media (max-width: 760px) {
+    .hero { display: block; min-height: 0; }
+    .hero :global(.hero-bg) { position: relative; left: auto; aspect-ratio: 4 / 3.4; }
+    .hero :global(.hero-bg img) { object-position: 72% 18%; }
+    .hero-shade { display: none; }
+    .hero-copy { padding-top: 2rem; padding-bottom: 2.5rem; }
+    .lower-third { left: 0; right: auto; bottom: auto; top: calc(100vw * 3.4 / 4 - 5.5rem); }
+  }
 
   .problems { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 0 2.5rem; grid-template-columns: 1fr; }
   @media (min-width: 700px) { .problems { grid-template-columns: 1fr 1fr; } }
