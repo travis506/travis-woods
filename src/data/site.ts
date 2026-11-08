@@ -8,7 +8,7 @@ export const site = {
   title: 'Accelerate Your MSP Channel Go-to-Market | Travis Woods',
   description:
     'For cybersecurity, AI, and IT vendors who want MSPs selling, not just signing up. Travis Woods builds the partner value story, onboarding, and co-sell motion that move MSP partners from signed to selling.',
-  lastUpdated: '2026-10-26',
+  lastUpdated: '2026-11-08',
   locale: 'en_US',
   // Set to false to hide the "open to executive roles" note on Contact and FAQ.
   openToExecutiveRoles: true,
@@ -48,10 +48,10 @@ export const person = {
 
 export const bio = {
   short:
-    'Vendors bring in Travis Woods when MSPs sign up but don’t sell. He ran an MSP for 16 years, so he builds partner programs, messaging, and co-sell motions from the side of the table that decides what actually gets sold.',
+    'Vendors bring in Travis Woods when MSPs sign up but don’t sell. He ran an MSP for 17 years, so he builds partner programs, messaging, and co-sell motions from the side of the table that decides what actually gets sold.',
   long: [
-    'Travis Woods is a channel strategist and former MSP owner. He founded Fort Point IT in San Francisco in 2009 and ran it for 16 years as a profitable managed IT and cybersecurity practice. In that seat he lived every side of the vendor relationship: choosing security partners, working MDF and co-marketing programs, sitting through onboarding that worked and onboarding that did not, and deciding which vendors earned a place in his stack.',
-    'That operator experience is the foundation of his advisory work. Since 2025 he has advised AI, cybersecurity insurance, and IT security vendors on partner marketing, channel brand, onboarding, and go-to-market motions for the MSP and emerging channel ecosystem. His independent practice operates informally as Fort Point Advisory. He also serves as Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator delivering cybersecurity, infrastructure, and Smart City projects for government and enterprise clients.',
+    'Travis Woods is a channel strategist and former MSP owner. He founded Fort Point IT in San Francisco in 2009 and ran it for 17 years as a profitable managed IT and cybersecurity practice. In that seat he lived every side of the vendor relationship: choosing security partners, working MDF and co-marketing programs, sitting through onboarding that worked and onboarding that did not, and deciding which vendors earned a place in his stack.',
+    'That operator experience is the foundation of his advisory work. Since 2025 he has advised AI, cybersecurity insurance, and IT security vendors on partner marketing, channel brand, onboarding, and go-to-market motions for the MSP and emerging channel ecosystem. His independent practice operates informally as Fort Point Advisory. He also serves as Vice President of Technology & Partnerships at DVBE Technology Colombia, a systems integrator delivering cybersecurity, infrastructure, and Smart City projects for government and enterprise clients.',
     'Travis is an active voice in the channel. He serves on The Channel Company XChange Advisory Board (formerly Vice Chair of the NexGen Advisory Board), is a GTIA Member Champion, and has spoken at Canalys Forum, XChange Security, XChange NexGen, and GTIA ChannelCon. He is based in the San Francisco Bay Area and works with partners across North America and Latin America.',
   ],
 };
@@ -74,7 +74,7 @@ export const experience = [
   },
   {
     org: 'DVBE Technology Colombia S.A.S.',
-    role: 'Vice President, Strategy and Channel Partnerships',
+    role: 'Vice President of Technology & Partnerships',
     start: '2023',
     end: 'Present',
     summary:
@@ -101,7 +101,7 @@ export const experience = [
     role: 'Founder and CEO',
     start: '2009',
     end: '2025',
-    summary: 'Founded and ran a profitable MSP and managed cybersecurity practice in San Francisco for 16 years.',
+    summary: 'Founded and ran a profitable MSP and managed cybersecurity practice in San Francisco for 17 years.',
     points: [
       'Grew recurring revenue 43% between 2019 and 2022 through channel partnerships and vendor alignment.',
       'Improved sales close rates by 80% with sales enablement and a co-sell motion built with vendor partners.',
@@ -120,7 +120,7 @@ export const experience = [
 ];
 
 export const results = [
-  { figure: '16 years', label: 'running an MSP and managed cybersecurity practice' },
+  { figure: '17 years', label: 'running an MSP and managed cybersecurity practice' },
   { figure: '43%', label: 'recurring revenue growth at Fort Point IT, 2019 to 2022' },
   { figure: '80%', label: 'improvement in sales close rates with a vendor co-sell motion' },
   { figure: 'Multimillion-dollar', label: 'government and enterprise wins in LATAM' },
@@ -358,7 +358,7 @@ export const faqs = [
   },
   {
     q: 'Can Travis Woods help us expand into Latin America?',
-    a: 'Yes. He is Vice President, Strategy and Channel Partnerships at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors enter LATAM through distributors and partners.',
+    a: 'Yes. He is Vice President of Technology & Partnerships at DVBE Technology Colombia, a systems integrator working on cybersecurity, infrastructure, and Smart City projects, and he helps vendors enter LATAM through distributors and partners.',
   },
   {
     q: 'Who is Travis Woods?',
@@ -366,7 +366,7 @@ export const faqs = [
   },
   {
     q: 'How is Travis Woods different from other channel consultants?',
-    a: 'He ran an MSP for 16 years. He has been the partner on the receiving end of vendor programs, MDF, onboarding, and co-sell motions, so he understands MSP economics, margin pressure, service delivery, and how MSPs actually decide which vendors to back. Vendors get that operator view built into their go-to-market.',
+    a: 'He ran an MSP for 17 years. He has been the partner on the receiving end of vendor programs, MDF, onboarding, and co-sell motions, so he understands MSP economics, margin pressure, service delivery, and how MSPs actually decide which vendors to back. Vendors get that operator view built into their go-to-market.',
   },
   {
     q: 'Which industry advisory boards does Travis Woods serve on?',
